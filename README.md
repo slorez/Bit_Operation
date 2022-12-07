@@ -1,3 +1,3 @@
 # Bit_Operation
-Bit operation and log operation 
+Bit operation and logic operation 
 >> << ~ ^ | &
