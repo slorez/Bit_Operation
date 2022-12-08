@@ -42,8 +42,35 @@ int main(int argc, char const *argv[])
 	printBit(b);
 	putchar('\n');
 
-
 	/* Проверка разряда на наличие лог 0 */
+	dev = 0xD0;
+	b = 0xFF;
+	for (int i = 0; i < 8; i++){
+		printRowLine('=',40);
+		if ( 0 ==(dev & (1 << i)))
+			printf("[TRUE ]:[%#X] & [%#X] == 0\n", (1 << i), dev);
+		else
+			printf("[FALSE]:[%#X] & [%#X] == 0\n", (1 << i), dev);
+		printRowLine('-',40);
+		if ( 0 ==(b & (1 << i)))
+			printf("[TRUE ]:[%#X] & [%#X] == 0\n", (1 << i), b);
+		else
+			printf("[FALSE]:[%#X] & [%#X] == 0\n", (1 << i), b);
+		printRowLine('=',40);
+	}
+	for (int i = 0; i < 8; i++){
+		printRowLine('=',40);
+		if ( ~dev & (1 << i))
+			printf("[TRUE ]:[%#X] & ~[%#X]\n", (1 << i), dev);
+		else
+			printf("[FALSE]:[%#X] & ~[%#X]\n", (1 << i), dev);
+		printRowLine('-',40);
+		if ( 0 ==(b & (1 << i)))
+			printf("[TRUE ]:[%#X] & ~[%#X]\n", (1 << i), b);
+		else
+			printf("[FALSE]:[%#X] & ~[%#X]\n", (1 << i), b);
+		printRowLine('=',40);
+	}
 	/* Проверка разряда на наличие лог 1 */
 	/* Ожидание появления лог 1 в некотором разряде */
 	/* Ожидание появления лог 0 в некотором разряде */
