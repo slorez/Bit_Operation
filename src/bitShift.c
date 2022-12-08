@@ -176,8 +176,7 @@ void printAll(void)
 	*  7 - ( b & 0x80 ) --> 1000 0000 & 1000 0000 = 1 
 	*  b <<= 1 --> 1000 0000 << 1 = 0000 0000    
 */
-void printProtocolTransmit(void)
-{
+void printProtocolTransmit(void){
 	unsigned long code_1 = 5393L;
 	unsigned long code_2 = 5396L;
 	unsigned int length = 24;
@@ -195,6 +194,5 @@ void printProtocolTransmit(void)
 		}
 		printf("\tprotocol.syncFactor__\n");
 	}
-
 }
 

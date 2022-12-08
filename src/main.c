@@ -5,15 +5,45 @@
 
 
 int main(int argc, char const *argv[])
-{
-/*	char cmdAll[4] = {"All"}; 
-	int a = atoi(argv[1]);
-	printf("Filename: {%s}\n", argv[0]);
-	printf("Name: {%s}\n", argv[1]);
-	printf("int a: %d\n", a);
-	if (argv[1] == 'A')
-		printf("Hello %s\n", argv[1]);*/
-	printAll();
+{	
+	/* Запись лог 1 с обнуления */
+	uint8_t b = 0x50;
+	printBit(b); 
+	b = (1<<7) | (1<<1);
+	printf(" b: %#x ", b);
+	printBit(b);
+	putchar('\n');
+	
+	/* Запись лог 1 без обнуления */
+	b = 0x50;
+	printBit(b);
+	b |= (1<<7) | (1<<1);
+	printf(" b: %#x ", b);
+	printBit(b);
+	putchar('\n');
+	
+	/* Запись лог 0 без обнуления */
+	b = 0xFF;
+	printBit(b);
+	b &= ~(1<<7);
+	printf(" b: %#x ", b);
+	printBit(b);
+	putchar('\n');
+	
+	/* Запись лог 0 с записью остальных разрядов в лог 1 */
+	b = 0xDD;
+	printBit(b);
+	b = ~(1<<7);
+	printf(" b: %#x ", b);
+	printBit(b);
+	putchar('\n');
+
+
+	/* Проверка разряда на наличие лог 0 */
+	/* Проверка разряда на наличие лог 1 */
+	/* Ожидание появления лог 1 в некотором разряде */
+	/* Ожидание появления лог 0 в некотором разряде */
+	/* Проверка состояния определенных разрядов */
 	return 0;
 }
 
